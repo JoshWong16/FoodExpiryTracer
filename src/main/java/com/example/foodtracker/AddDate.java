@@ -17,7 +17,7 @@ public class AddDate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_date);
-         date= (Button) findViewById (R.id.button9);
+        date= (Button) findViewById (R.id.button9);
         back1 = (ImageButton) findViewById (R.id.imageButton1); //button 1 for back, button 2 for home
         home1 = (ImageButton) findViewById (R.id.imageButton2);
         date.setOnClickListener (new View.OnClickListener(){
