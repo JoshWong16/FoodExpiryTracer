@@ -27,34 +27,33 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="56dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="53dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="41dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_8px" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="59dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="382dp"
-        android:layout_marginLeft="382dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="631dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/group_2" />
+        app:srcCompat="@drawable/group_2"
+        tools:layout_editor_absoluteX="320dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="417dp"
         android:layout_height="532dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="160dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="160dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

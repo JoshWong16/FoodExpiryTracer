@@ -10,55 +10,46 @@ import android.widget.Button;
 
 public class activity2 extends AppCompatActivity {
     private Button button1;
-    private Button Add_food;
-    private Button Add_date;
-
+    private Button Adddate;
+    private Button AddFood;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity2);
-        Add_food= (Button) findViewById(R.id.button2);
-        Add_date = (Button) findViewById (R.id.button3);
         button1 = (Button) findViewById(R.id.button1);
+        AddFood = (Button) findViewById (R.id.button2);
+        Adddate = (Button) findViewById (R.id.button3);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openactivity3();
             }
         });
-        Add_food.setOnClickListener (new View.OnClickListener(){
+        AddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             try
-             {
-                 Intent intent1 = new Intent ();
-                 intent1.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-                 startActivity(intent1);
-             }
-             catch (Exception e){
-                 e.printStackTrace();
-             }
+                openactivity4();
             }
         });
-        Add_date.setOnClickListener (new View.OnClickListener(){
+        Adddate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try
-                {
-                    Intent intent1 = new Intent ();
-                    intent1.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivity(intent1);
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
+                openactivity5();
             }
-        });  }
+        });
+ }
 
     public void openactivity3() {
         Intent intent = new Intent(this, activity3_myitems.class);
         startActivity(intent);
     }
 
-
+    public void openactivity4() {
+        Intent intent = new Intent(this, AddFood.class);
+        startActivity(intent);
+    }
+    public void openactivity5() {
+        Intent intent = new Intent(this, AddDate.class);
+        startActivity(intent);
+    }
 }
