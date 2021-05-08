@@ -18,7 +18,7 @@ public class activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_activity2);
         button1 = (Button) findViewById(R.id.button1);
         AddFood = (Button) findViewById (R.id.button2);
-        Adddate = (Button) findViewById (R.id.button3);
+        //Adddate = (Button) findViewById (R.id.button3);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,12 +31,12 @@ public class activity2 extends AppCompatActivity {
                 openactivity4();
             }
         });
-        Adddate.setOnClickListener(new View.OnClickListener() {
+       /* Adddate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openactivity5();
             }
-        });
+        }); */
  }
 
     public void openactivity3() {
@@ -48,8 +48,8 @@ public class activity2 extends AppCompatActivity {
         Intent intent = new Intent(this, AddFood.class);
         startActivity(intent);
     }
-    public void openactivity5() {
+    /*public void openactivity5() {
         Intent intent = new Intent(this, AddDate.class);
         startActivity(intent);
-    }
+    } */
 }

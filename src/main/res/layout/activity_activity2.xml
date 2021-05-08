@@ -7,6 +7,7 @@
     android:background="#F1FDFD"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/button1"
         android:layout_width="340sp"
@@ -28,14 +29,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.423" />
 
     <Button
 
         android:id="@+id/button2"
         android:layout_width="340sp"
         android:layout_height="69sp"
-        android:layout_marginTop="181dp"
+        android:layout_marginTop="176dp"
         android:layout_marginBottom="11dp"
         android:background="@drawable/get"
         android:ellipsize="middle"
@@ -51,26 +52,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="340sp"
-        android:layout_height="69sp"
-        android:layout_marginTop="260dp"
-        android:layout_marginBottom="402dp"
-        android:background="@drawable/get"
-        android:ellipsize="middle"
-        android:fontFamily="@font/rubik_medium"
-        android:text="Add Expiration Date"
-        android:textAllCaps="false"
-        android:textSize="25sp"
-        app:backgroundTint="#11A899"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="411dp"
@@ -80,13 +61,13 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:srcCompat="@drawable/bb" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

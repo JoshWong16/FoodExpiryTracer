@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
+    //apply plugin: 'com.google.gms.google-services'
 }
+
 
 android {
     compileSdkVersion 30
@@ -8,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.foodtracker"
-        minSdkVersion 16
+        minSdkVersion 29
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -38,5 +40,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+    implementation 'com.google.firebase:firebase-firestore'
+
+   // implementation "com.google.firebase:firebase-database:9.2.0"
+  //  implementation "com.google.firebase:firebase-client-andriod:2.3.1"
+   // implementation "com.google.firebase:firebase-ui:0.4.3"
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
 }
+//apply plugin: "com.google.gms.google-services"
