@@ -4,12 +4,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class AddDate extends AppCompatActivity {
     private Button date;
@@ -25,15 +29,7 @@ public class AddDate extends AppCompatActivity {
         date.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                try
-                {
-                    Intent intent1 = new Intent ();
-                    intent1.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivity(intent1);
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
+                startCropperActivity();
             }
         });
         back1.setOnClickListener(new View.OnClickListener() {
@@ -92,5 +88,24 @@ public class AddDate extends AppCompatActivity {
         });
 
         dialog1.show();
+    }
+
+    private void startCropperActivity() {
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .start(this);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri resultUri = result.getUri();
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
+        }
     }
 }
