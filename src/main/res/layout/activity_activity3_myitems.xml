@@ -9,13 +9,30 @@
     android:background="#F1FDFD">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#009688"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+        <ListView
+            android:id="@+id/listview1"
+            android:layout_width="392dp"
+            android:layout_height="688dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="-23dp"
+            android:divider="#07085B"
+            android:dividerHeight="1dp"
+            android:listSelector="#0f0"
+            android:footerDividersEnabled="false"
+
+            />
 
     <TextView
         android:id="@+id/textView8"
@@ -29,18 +46,6 @@
         android:text="My Items"
         android:textColor="#FFFFFF"
         android:textSize="23dp" />
-
-    <ListView
-        android:id="@+id/listview1"
-        android:layout_width="392dp"
-        android:layout_height="688dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="-23dp" />
 
     <ImageButton
         android:id="@+id/imageButton5"

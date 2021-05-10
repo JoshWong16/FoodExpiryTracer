@@ -45,4 +45,5 @@ public class FoodItem implements Comparable<FoodItem>{
         if(date.compareTo(foodItem.getDate()) > 0) return 1;
         return 0;
     }
+
 }

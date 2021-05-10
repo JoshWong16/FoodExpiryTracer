@@ -18,6 +18,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Collections.sort;
 
@@ -55,9 +56,21 @@ public class activity3_myitems extends AppCompatActivity {
             }
         }); */
 
+        List<String> x = new ArrayList<>();
+        x.add("ONE");
+        x.add("TWO");
+        x.add("THREE");
+        x.add("ONE");
+        x.add("TWO");
+        x.add("THREE");
+        x.add("ONE");
+        x.add("TWO");
+        x.add("THREE");
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, x);
+        listView.setAdapter(arrayAdapter);
+        Log.d(TAG, Integer.toString(arrayAdapter.getCount()));
 
-
-        db.collection("FoodCollection").addSnapshotListener(new EventListener<QuerySnapshot>() {
+     /*   db.collection("FoodCollection").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value,
                                 @Nullable FirebaseFirestoreException e) {
@@ -82,11 +95,11 @@ public class activity3_myitems extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, displayList);
+       // ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, displayList);
 
-        listView.setAdapter(arrayAdapter);
+       // listView.setAdapter(arrayAdapter);
 
     }
     public void openactivity5() {
