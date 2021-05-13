@@ -1,5 +1,6 @@
 package com.example.foodtracker;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +10,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -32,20 +34,20 @@ public class activity3_myitems extends AppCompatActivity {
     public static final String ITEM_KEY = "item";
     public static final String DATE_KEY = "date";
     public static final String TAG = "test";
-
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ArrayList<String> displayList = new ArrayList<>();
-    ListView listView;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<String> itemList = new ArrayList<>();
+    ArrayList<String> dateList = new ArrayList<>();
+    ListView itemListView;
+    ListView dateListView;
     Context context = this;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity3_myitems);
         back2 = (ImageButton) findViewById (R.id.imageButton5);
 
-        listView = (ListView) findViewById(R.id.listview1);
+        itemListView = (ListView) findViewById(R.id.listview1);
+        dateListView = (ListView) findViewById(R.id.listViewID);
 
         back2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,39 +64,8 @@ public class activity3_myitems extends AppCompatActivity {
         }); */
 
         fetchItems();
-
-     /*   db.collection("FoodCollection").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w(TAG, "Listen failed.", e);
-                    return;
-                }
-
-                //Add data from database into FoodList as custom object "FoodItem"
-                ArrayList<FoodItem> FoodList = new ArrayList<>();
-                for (QueryDocumentSnapshot doc : value) {
-                    FoodItem newData = doc.toObject(FoodItem.class);
-                    FoodList.add(newData);
-                }
-
-                sort(FoodList);
-
-                //Make new list of strings for displaying in app
-                displayList = new ArrayList<>();
-                for (FoodItem foodItem : FoodList){
-                    displayList.add(foodItem.getItem() + ": " + foodItem.getStringDate());
-                }
-
-            }
-        });*/
-
-       // ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, displayList);
-
-       // listView.setAdapter(arrayAdapter);
-
     }
+
     public void openactivity5() {
         Intent intent = new Intent(this, activity2.class);
         startActivity(intent);
@@ -104,7 +75,7 @@ public class activity3_myitems extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    
+
     public void fetchItems() {
         db.collection("FoodCollection").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -115,31 +86,27 @@ public class activity3_myitems extends AppCompatActivity {
                     Log.w(TAG, "Listen failed.", e);
                     return;
                 }
-                Log.d(TAG, "3");
                 //Add data from database into FoodList as custom object "FoodItem"
                 ArrayList<FoodItem> FoodList = new ArrayList<>();
                 for (QueryDocumentSnapshot doc : value) {
                     FoodItem newData = doc.toObject(FoodItem.class);
                     FoodList.add(newData);
                 }
-                Log.d(TAG, "4");
                 sort(FoodList);
-                Log.d(TAG, "5");
                 //Make new list of strings for displaying in app
-                displayList = new ArrayList<>();
+                itemList = new ArrayList<>();
                 for (FoodItem foodItem : FoodList){
-                    displayList.add(foodItem.getItem() + ": " + foodItem.getStringDate());
+                    itemList.add(foodItem.getItem());
+                    dateList.add(foodItem.getStringDate());
                 }
-                Log.d(TAG, Arrays.toString(displayList.toArray()));
+                Log.d(TAG, Arrays.toString(itemList.toArray()));
+                Log.d(TAG, Arrays.toString(dateList.toArray()));
 
-                //ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, displayList);
-               // listView.setAdapter(arrayAdapter);
+                ArrayAdapter itemAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, itemList);
+                itemListView.setAdapter(itemAdapter);
 
-
-                ItemsList.MyCustomAdapter adapter = new ItemsList.MyCustomAdapter(displayList, context);
-
-                ListView View1 = (ListView)findViewById(R.id.listview1);
-                View1.setAdapter(adapter);
+                ArrayAdapter dateAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, dateList);
+                dateListView.setAdapter(dateAdapter);
             }
         });
     }
