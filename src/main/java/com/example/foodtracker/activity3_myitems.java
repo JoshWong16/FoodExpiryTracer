@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -20,6 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import static java.util.Collections.sort;
@@ -34,7 +37,7 @@ public class activity3_myitems extends AppCompatActivity {
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ArrayList<String> displayList = new ArrayList<>();
+    ArrayList<Pair<String, String>> displayList = new ArrayList<>();
     ListView listView;
     Context context = this;
 
@@ -61,38 +64,6 @@ public class activity3_myitems extends AppCompatActivity {
         }); */
 
         fetchItems();
-
-     /*   db.collection("FoodCollection").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value,
-                                @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w(TAG, "Listen failed.", e);
-                    return;
-                }
-
-                //Add data from database into FoodList as custom object "FoodItem"
-                ArrayList<FoodItem> FoodList = new ArrayList<>();
-                for (QueryDocumentSnapshot doc : value) {
-                    FoodItem newData = doc.toObject(FoodItem.class);
-                    FoodList.add(newData);
-                }
-
-                sort(FoodList);
-
-                //Make new list of strings for displaying in app
-                displayList = new ArrayList<>();
-                for (FoodItem foodItem : FoodList){
-                    displayList.add(foodItem.getItem() + ": " + foodItem.getStringDate());
-                }
-
-            }
-        });*/
-
-       // ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, displayList);
-
-       // listView.setAdapter(arrayAdapter);
-
     }
     public void openactivity5() {
         Intent intent = new Intent(this, activity2.class);
@@ -109,30 +80,37 @@ public class activity3_myitems extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable QuerySnapshot value,
                                 @Nullable FirebaseFirestoreException e) {
-                Log.d(TAG, "2");
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);
                     return;
                 }
-                Log.d(TAG, "3");
                 //Add data from database into FoodList as custom object "FoodItem"
                 ArrayList<FoodItem> FoodList = new ArrayList<>();
                 for (QueryDocumentSnapshot doc : value) {
                     FoodItem newData = doc.toObject(FoodItem.class);
                     FoodList.add(newData);
                 }
-                Log.d(TAG, "4");
                 sort(FoodList);
-                Log.d(TAG, "5");
+
                 displayList = new ArrayList<>();
-                for (FoodItem foodItem : FoodList){
-                    displayList.add(foodItem.getItem() + ": " + foodItem.getStringDate());
+                for (FoodItem foodItem : FoodList) {
+                    displayList.add(new Pair<>(foodItem.getItem(), foodItem.getStringDate()));
                 }
                 Log.d(TAG, Arrays.toString(displayList.toArray()));
 
-                ItemsList.MyCustomAdapter customAdapter = new ItemsList.MyCustomAdapter(displayList, context);
-                //ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, displayList);
-                listView.setAdapter(customAdapter);
+                List<HashMap<String, String>> listItems = new ArrayList<>();
+                SimpleAdapter simpleAdapter = new SimpleAdapter(context, listItems, R.layout.list_items,
+                        new String[]{"First Line", "Second Line"},
+                        new int[]{R.id.textView2, R.id.textView3});
+
+                for (Pair<String, String> pair : displayList){
+                    HashMap<String, String> resultsMap = new HashMap<>();
+                    resultsMap.put("First Line", pair.first);
+                    resultsMap.put("Second Line", pair.second);
+                    listItems.add(resultsMap);
+                }
+
+                listView.setAdapter(simpleAdapter);
             }
         });
     }
