@@ -16,23 +16,24 @@
             android:background="#009688"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
-        <ListView
-            android:id="@+id/listview1"
-            android:layout_width="392dp"
-            android:layout_height="688dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="3dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="-23dp"
-            android:divider="#07085B"
-            android:dividerHeight="1dp"
-            android:listSelector="#0f0"
-            android:footerDividersEnabled="false"
 
-            />
+
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="406dp"
+        android:layout_height="671dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="7dp"
+        android:divider="#07085B"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="false"
+        android:listSelector="#0f0" />
 
     <TextView
         android:id="@+id/textView8"

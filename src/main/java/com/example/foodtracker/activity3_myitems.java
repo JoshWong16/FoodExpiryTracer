@@ -3,11 +3,13 @@ package com.example.foodtracker;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -18,6 +20,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Collections.sort;
@@ -129,8 +132,14 @@ public class activity3_myitems extends AppCompatActivity {
                 }
                 Log.d(TAG, Arrays.toString(displayList.toArray()));
 
-                ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, displayList);
-                listView.setAdapter(arrayAdapter);
+                //ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, displayList);
+               // listView.setAdapter(arrayAdapter);
+
+
+                ItemsList.MyCustomAdapter adapter = new ItemsList.MyCustomAdapter(displayList, context);
+
+                ListView View1 = (ListView)findViewById(R.id.listview1);
+                View1.setAdapter(adapter);
             }
         });
     }
