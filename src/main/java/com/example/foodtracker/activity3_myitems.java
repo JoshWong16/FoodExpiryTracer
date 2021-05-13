@@ -109,8 +109,8 @@ public class activity3_myitems extends AppCompatActivity {
                     resultsMap.put("Second Line", pair.second);
                     listItems.add(resultsMap);
                 }
-
-                listView.setAdapter(simpleAdapter);
+                ItemsList.MyCustomAdapter customAdapter = new ItemsList.MyCustomAdapter(displayList, context);
+                listView.setAdapter(customAdapter);
             }
         });
     }

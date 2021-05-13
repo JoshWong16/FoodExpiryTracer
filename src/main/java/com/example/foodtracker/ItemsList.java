@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +25,17 @@ public class ItemsList extends AppCompatActivity {
         setContentView(R.layout.activity_items_list);
     }
     public static class MyCustomAdapter extends BaseAdapter implements ListAdapter {
-        private ArrayList<String> list = new ArrayList<String>();
+        private ArrayList<Pair<String,String>> list = new ArrayList<Pair<String,String>>();
         private Context context;
 
 
 
-        public MyCustomAdapter(ArrayList<String> list, Context context) {
+        public MyCustomAdapter(ArrayList<Pair<String,String>> list, Context context) {
             this.list = list;
             this.context = context;
         }
+
+
 
         @Override
         public int getCount() {
@@ -63,8 +66,8 @@ public class ItemsList extends AppCompatActivity {
             TextView FoodItemText = (TextView)view.findViewById(R.id.foodItem);
             TextView DateItemText = (TextView)view.findViewById(R.id.expirydate);
 
-            FoodItemText.setText(list.get(position));
-            DateItemText.setText(list.get(position));
+            FoodItemText.setText(list.get(position).first);
+            DateItemText.setText(list.get(position).second);
 
             ImageButton deleteButton = (ImageButton)view.findViewById(R.id.delete);
             ImageButton editButton = (ImageButton)view.findViewById(R.id.edit);
