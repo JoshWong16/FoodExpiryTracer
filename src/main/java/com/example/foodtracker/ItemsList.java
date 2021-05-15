@@ -75,6 +75,8 @@ public class ItemsList extends AppCompatActivity {
             deleteButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    String itemToDel = list.get(position).first;
+                    deleteDBDocument(itemToDel);
                     list.remove(position);
                     notifyDataSetChanged();
                 }
@@ -88,6 +90,22 @@ public class ItemsList extends AppCompatActivity {
             });
 
             return view;
+        }
+        public void deleteDBDocument(String item){
+            db.collection("FoodCollection").document(item)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error deleting document", e);
+                        }
+                    });
         }
     }
 
