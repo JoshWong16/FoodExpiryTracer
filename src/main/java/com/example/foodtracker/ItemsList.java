@@ -27,8 +27,9 @@ public class ItemsList extends AppCompatActivity {
     public static class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         private ArrayList<Pair<String,String>> list = new ArrayList<Pair<String,String>>();
         private Context context;
-
-
+        private FirebaseFirestore db = FirebaseFirestore.getInstance();
+        private String TAG = "test";
+    
 
         public MyCustomAdapter(ArrayList<Pair<String,String>> list, Context context) {
             this.list = list;
