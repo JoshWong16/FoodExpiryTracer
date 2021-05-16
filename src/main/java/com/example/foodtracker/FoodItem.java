@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -46,6 +47,13 @@ public class FoodItem implements Comparable<FoodItem>{
         return 0;
     }
 
+    public void setItem(String item){
+        this.item = item;
+    }
+
+    public void setStringDate(String date) throws ParseException {
+        this.date = new SimpleDateFormat("MM/dd/yyyy").parse(date);
+    }
 
 
 }

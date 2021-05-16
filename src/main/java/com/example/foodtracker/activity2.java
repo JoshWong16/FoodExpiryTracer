@@ -10,7 +10,6 @@ import android.widget.Button;
 
 public class activity2 extends AppCompatActivity {
     private Button button1;
-    private Button Adddate;
     private Button AddFood;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +30,6 @@ public class activity2 extends AppCompatActivity {
                 openactivity4();
             }
         });
-       /* Adddate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openactivity5();
-            }
-        }); */
  }
 
     public void openactivity3() {
@@ -48,8 +41,5 @@ public class activity2 extends AppCompatActivity {
         Intent intent = new Intent(this, AddFood.class);
         startActivity(intent);
     }
-    /*public void openactivity5() {
-        Intent intent = new Intent(this, AddDate.class);
-        startActivity(intent);
-    } */
+
 }
