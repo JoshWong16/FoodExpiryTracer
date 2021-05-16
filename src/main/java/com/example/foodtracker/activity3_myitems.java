@@ -99,9 +99,9 @@ public class activity3_myitems extends AppCompatActivity {
                 Log.d(TAG, Arrays.toString(displayList.toArray()));
 
                 List<HashMap<String, String>> listItems = new ArrayList<>();
-                SimpleAdapter simpleAdapter = new SimpleAdapter(context, listItems, R.layout.list_items,
+                SimpleAdapter simpleAdapter = new SimpleAdapter(context, listItems, R.layout.activity_items_list,
                         new String[]{"First Line", "Second Line"},
-                        new int[]{R.id.textView2, R.id.textView3});
+                        new int[]{R.id.foodItem, R.id.expirydate});
 
                 for (Pair<String, String> pair : displayList){
                     HashMap<String, String> resultsMap = new HashMap<>();
