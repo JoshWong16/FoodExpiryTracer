@@ -17,7 +17,7 @@ public class activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_activity2);
         button1 = (Button) findViewById(R.id.button1);
         AddFood = (Button) findViewById (R.id.button2);
-        //Adddate = (Button) findViewById (R.id.button3);
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
