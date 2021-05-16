@@ -37,14 +37,8 @@ public class AddDate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_date);
-        date= (Button) findViewById (R.id.button9);
         back1 = (ImageButton) findViewById (R.id.imageButton4);
-        date.setOnClickListener (new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startCropperActivity();
-            }
-        });
+
         back1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

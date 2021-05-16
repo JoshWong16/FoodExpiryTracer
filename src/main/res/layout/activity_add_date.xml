@@ -9,45 +9,22 @@
 
 
     <Button
-
-        android:id="@+id/button9"
-        android:layout_width="340sp"
-        android:layout_height="69sp"
-        android:layout_marginTop="140dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/get"
-        android:ellipsize="middle"
-        android:fontFamily="@font/rubik_medium"
-        android:text="Scan"
-        android:textAllCaps="false"
-        android:textSize="25sp"
-        app:backgroundTint="#11A899"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/button10"
         android:layout_width="340sp"
         android:layout_height="69sp"
         android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="168dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         android:background="@drawable/get"
         android:ellipsize="middle"
         android:fontFamily="@font/rubik_medium"
         android:onClick="btn_showDialog1"
-        android:text="Manual Entry"
+        android:text="Date Entry"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:backgroundTint="#11A899"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,18 +32,15 @@
         android:id="@+id/imageView7"
         android:layout_width="339dp"
         android:layout_height="549dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="249dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
         app:srcCompat="@drawable/daa" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
