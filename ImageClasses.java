@@ -15,7 +15,7 @@ public class ImageClasses {
             "Honey",
             "Jam",
             "Juice",
-            "milk",
+            "Milk",
             "Nuts",
             "Oil",
             "Pasta",
