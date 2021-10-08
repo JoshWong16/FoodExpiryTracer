@@ -25,9 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddDate extends AppCompatActivity {
-    private Button date;
     private ImageButton back1;
-    private ImageButton home1;
     private FoodItem foodItem = new FoodItem();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static final String TAG = "test";
