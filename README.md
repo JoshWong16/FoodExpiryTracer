@@ -37,6 +37,8 @@ We have a report and a video presentation discussion the features of our product
 
 # How to Run
 
-Install [APK](apk/FoodTracer.apk) into an Android smart phone. It should be ready to use once installed.
+Requirements: Android Studios
 
-The app supports dark mode and will turn on automatically when phone theme is set to dark mode.
+- Open the project in android studios
+- Refer to [Android Studios Build and Run](https://developer.android.com/studio/run)
+- Install Apk file into smartphone

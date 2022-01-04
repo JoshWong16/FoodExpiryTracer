@@ -1,4 +1,4 @@
-package com.example.foodtracker;
+package com.example.pytorchwalkthrough;
 
 public class ImageClasses {
     public static String[] IMAGENET_CLASSES = new String[]{
@@ -15,7 +15,7 @@ public class ImageClasses {
             "Honey",
             "Jam",
             "Juice",
-            "milk",
+            "Milk",
             "Nuts",
             "Oil",
             "Pasta",
